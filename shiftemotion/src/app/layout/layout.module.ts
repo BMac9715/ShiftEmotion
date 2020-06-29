@@ -7,7 +7,7 @@ import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent],
+  declarations: [NavbarComponent, FooterComponent ],
   exports: [NavbarComponent, FooterComponent], 
   imports: [
     CommonModule,
