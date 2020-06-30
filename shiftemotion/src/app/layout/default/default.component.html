@@ -1,0 +1,20 @@
+
+
+<div flexLayout="row" fxFlex>
+    <div fxFlex="20">
+        <app-sidebar-dash-board fxFlex></app-sidebar-dash-board>
+    </div>
+    <div fxFlex="80" class="content" >
+        <app-topbar-dash-board flexLayout="column"></app-topbar-dash-board>
+        <!-- <div class="container-fluid"> -->
+        <router-outlet></router-outlet>
+        <!-- </div> -->
+    </div>
+    
+</div>
+
+<app-footer-dashboard flexLayout = "column"></app-footer-dashboard>
+
+
+
+
