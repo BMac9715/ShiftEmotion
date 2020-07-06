@@ -5,7 +5,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LayoutModule } from './layout/layout.module';
 import { DefaultModule } from './layout/default/default.module';
+// import { aws4 }from 'aws4';
+// import {CryptoJS} from 'crypto-js'
+
 import { SidebarDashBoardComponent } from './components/sidebar-dash-board/sidebar-dash-board.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,8 @@ import { SidebarDashBoardComponent } from './components/sidebar-dash-board/sideb
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    DefaultModule
+    DefaultModule,
+    HttpClientModule
   ],
   providers: [], 
   bootstrap: [AppComponent]
