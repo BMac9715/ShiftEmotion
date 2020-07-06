@@ -1,0 +1,93 @@
+
+.a-success{
+    color: #21c87a;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.a-success:hover{
+    color: #168652;
+    text-decoration: none;
+}
+
+.text-muted {
+    color: #8c98a4 !important;
+}
+
+.p-6 {
+    padding: 2.5rem !important;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem !important;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem !important;
+}
+
+.form__input {
+    z-index: 2;
+}
+
+.form__text {
+    position: relative;
+}
+
+.form .form__text {
+    min-width: 3rem;
+    font-size: 0.8125rem;
+}
+
+.form__text-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.input-group-prepend {
+    margin-right: -1px;
+}
+
+.input-group-prepend, .input-group-append {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.form__append, .form__prepend, .form__prepend > .btn, .form__append > .btn, .form__text {
+    background-clip: padding-box;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-group > .form-control:not(:first-child), .input-group > .custom-select:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group > .form-control, .input-group > .form-control-plaintext, .input-group > .custom-select, .input-group > .custom-file {
+    position: relative;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.fa, .fas {
+    font-weight: 900;
+}
+
+.invalid-feedback{
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #da4b48;
+}
+
+.not-padding-right{
+    padding-right: 0px;
+}
+
+.pad-left-custom{
+    padding-left: 25px;
+}

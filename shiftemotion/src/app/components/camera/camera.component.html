@@ -1,0 +1,29 @@
+<div class="background-camera">
+    <div class="container">
+        <div class="mt-4 mb-4 c-center">
+            <h3>Sistema de Recomendación Musical</h3>
+            <span>Para inicar tomate una foto o cargala desde tu ordenador.</span>
+        </div>
+
+        <div class="vid card mx-auto mt-4">
+            <div class="card-body">
+                <!-- Display images -->
+                <canvas [hidden]="showcamera" #canvas class="wh-100"></canvas>
+                
+                <!-- Video webcam container -->
+                <video [hidden]="!showcamera" #video class="wh-100" autoplay></video> 
+                
+                <!-- Temp Upload Image-->
+                <img style="display: none;" [src]="url" id="uploadImg">
+            </div>
+        </div>
+        <div class="vid card-buttons mx-auto mt-4 mb-4 pb-4">
+            <!-- Buttons -->
+            <input style="display: none;" type="file" (change)="onFileSelected($event)" (click)="clickUploadImage()" accept="image/*" #fileInput>
+            <button type="file" class="btn btn-primary ml-3 mr-3" (click)="fileInput.click()">Subir Foto</button> 
+            <button type="button" class="btn btn-info ml-3 mr-3" (click)="startCamera()">Camará Web</button>
+            <button [hidden]="takePhoto" [disabled]="disablePhoto" type="button" class="btn btn-info ml-3 mr-3" (click)="capture()">Tomar Foto</button>
+            <button type="button" class="btn btn-success ml-3 mr-3" (click)="getRecommendation()">Iniciar Recomendación</button>
+        </div>
+    </div>
+</div>
