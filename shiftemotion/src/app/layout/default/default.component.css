@@ -1,3 +1,9 @@
+@import './../../components/assets/css/sb-admin-2.min.css';
+@import './../../components/assets/css/sb-admin-2.min.css';
+@import './../../components/assets/css/sb-admin-2.css';
+@import './../../components/assets/vendor/fontawesome-free/css/all.min.css';
+@import './../../components/assets/vendor/fontawesome-free/css/all.min.css';
+
 :host{
     display: flex;
     flex-direction: column;
