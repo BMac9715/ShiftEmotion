@@ -4,6 +4,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from '../app-routing.module';
 
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { DefaultModule } from './default/default.module';
+
 
 
 @NgModule({
@@ -11,7 +14,8 @@ import { AppRoutingModule } from '../app-routing.module';
   exports: [NavbarComponent, FooterComponent], 
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FlexLayoutModule
   ]
 })
 export class LayoutModule { }
