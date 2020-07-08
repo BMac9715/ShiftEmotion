@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { History } from './../model/history';
 import * as aws4 from "ngx-aws4";
 
 const API: string = 'https://6ee7dz1b3a.execute-api.us-east-1.amazonaws.com'
@@ -19,6 +20,10 @@ export class ApiService {
   
   ObtenerPrueba(): Observable<any>{
     return this.http.get<any>(`${API}/beta/RecommendationsByGender`,{})
+  }
+
+  getHistory(): Observable<History>{
+    return this.http.get<History>(`${API}/beta/History`,{})
   }
 
   //POSTS

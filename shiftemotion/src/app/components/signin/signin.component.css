@@ -5,7 +5,7 @@
 }
 
 .bg-image-home{
-    background-image: url("../../../assets/images/home-background.jpg");
+    background-image: url("/../../assets/images/home-background.jpg");
     background-size: cover;
     opacity: 2;
 }

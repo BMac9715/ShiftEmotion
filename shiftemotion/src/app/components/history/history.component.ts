@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import { history } from './../../model/history';
+import { ApiService } from './../../services/api.service';
 
 @Component({
   selector: 'app-history',
@@ -30,8 +32,18 @@ export class HistoryComponent implements OnInit {
     }
   ]
 
+  songsHistory = [];
 
-  constructor() { }
+  constructor(private servicio: ApiService){
+    servicio.getHistory().subscribe((res) =>{
+      console.log(res)
+      for(let key in res)
+          this.songsHistory.push(res[key])
+    },err =>{
+      console.log(err)
+    });
+
+  }
 
   ngOnInit(): void {
   }
