@@ -5,7 +5,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {HistoryComponent} from "./components/history/history.component";
 import { DefaultComponent } from './layout/default/default.component';
 import { SidebarDashBoardComponent } from './components/sidebar-dash-board/sidebar-dash-board.component';
-
+import { SigninComponent } from './components/signin/signin.component';
+import { CameraComponent } from './components/camera/camera.component';
 
 const routes: Routes = [
   //{path:'', pathMatch:'full', redirectTo:'home'},
@@ -20,8 +21,9 @@ const routes: Routes = [
       component:DashboardComponent}
   ]},
   // {path: 'dashboard', component:DashboardComponent},
-  {path: 'home', component:HomeComponent}
-
+  {path: 'home', component:HomeComponent},
+  {path: 'signin', component:SigninComponent},
+  {path: 'camera', component:CameraComponent}
 ];
 
 @NgModule({

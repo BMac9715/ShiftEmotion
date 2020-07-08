@@ -7,14 +7,21 @@ import { LayoutModule } from './layout/layout.module';
 import { DefaultModule } from './layout/default/default.module';
 // import { aws4 }from 'aws4';
 // import {CryptoJS} from 'crypto-js'
-
 import { SidebarDashBoardComponent } from './components/sidebar-dash-board/sidebar-dash-board.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { CameraComponent } from './components/camera/camera.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegistrationComponent,
+    SigninComponent,
+    CameraComponent
   ],
   imports: [
     BrowserModule,
