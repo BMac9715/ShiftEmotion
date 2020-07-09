@@ -1,5 +1,5 @@
 export class History {
-    tipo_emocion: string
+    "tipo_emocion": string
     "descripcion": string
     "nivel_confianza": number
     "nombre_cancion": string

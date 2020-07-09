@@ -22,12 +22,12 @@ export class ApiService {
     return this.http.get<any>(`${API}/beta/RecommendationsByGender`,{})
   }
 
-  getHistory(): Observable<History>{
-    return this.http.get<History>(`${API}/beta/History`,{})
-  }
+ 
 
   //POSTS
-
+  getHistory(idUser: string): Observable<History>{
+    return this.http.post<History>(`${API}/beta/History`,{userId:idUser})
+  }
 
 
 

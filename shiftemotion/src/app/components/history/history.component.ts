@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { history } from './../../model/history';
+import { History } from './../../model/history';
 import { ApiService } from './../../services/api.service';
 
 @Component({
@@ -32,16 +32,25 @@ export class HistoryComponent implements OnInit {
     }
   ]
 
-  songsHistory = [];
+  goTrack(urlSpotify: string){
+    console.log("Print Song" + urlSpotify)
+  }
+
+  songsHistory: History[] = [];
 
   constructor(private servicio: ApiService){
-    servicio.getHistory().subscribe((res) =>{
+    servicio.getHistory('7').subscribe((res) =>{
       console.log(res)
-      for(let key in res)
+        for(let key in res)
           this.songsHistory.push(res[key])
+        
+      console.log("HISTORIAL CANCIONES")  
+      console.log(this.songsHistory);
+
     },err =>{
       console.log(err)
     });
+
 
   }
 
