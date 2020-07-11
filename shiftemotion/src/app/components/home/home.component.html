@@ -1,9 +1,23 @@
 
-<app-navbar [login]="false"></app-navbar>
+<app-navbar></app-navbar>
 
 <div class="d-lg-flex align-items-lg-center height-85vh--lg bg-image-home">
     <div class="container">
-        <app-registration></app-registration>
+
+        <div [hidden]="display" class="row justify-content-lg-between align-items-lg-center">
+            <div class="col-lg-5 mb-7 mb-lg-0">
+            </div>
+
+            <div class="col-lg-5" style="text-align: center;"> 
+                <span class="display-4 font-size-48--md-down text-dark mb-0">Bienvenido a ShiftEmotion</span>
+                <div class="mt-5 mb-5">
+                    <button class="btn btn-success btn-lg m-4" routerLink="/signin">Iniciar Sesión</button>
+                    <button class="btn btn-dark btn-lg m-4" routerLink="/signup">Registrarse</button>
+                </div>
+            </div>
+        </div>
+   
+        <router-outlet (activate)='onActivate()' (deactivate)='onDeactivate()'></router-outlet> 
     </div>
 </div>
 

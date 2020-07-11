@@ -1,11 +1,135 @@
-@media (min-width: 992px) {
-    .height-85vh--lg {
-        height: 83.5vh;
-    }
+.a-success{
+    color: #21c87a;
+    text-decoration: none;
+    background-color: transparent;
 }
 
-.bg-image-home{
-    background-image: url("../../../assets/images/home-background.jpg");
-    background-size: cover;
-    opacity: 2;
+.a-success:hover{
+    color: #168652;
+    text-decoration: none;
+}
+
+.text-muted {
+    color: #8c98a4 !important;
+}
+
+.p-6 {
+    padding: 2.5rem !important;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem !important;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem !important;
+}
+
+.form__input {
+    z-index: 2;
+}
+
+.form__text {
+    position: relative;
+}
+
+.form .form__text {
+    min-width: 3rem;
+    font-size: 0.8125rem;
+}
+
+.form__text-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.input-group-prepend {
+    margin-right: -1px;
+}
+
+.input-group-prepend, .input-group-append {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.form__append, .form__prepend, .form__prepend > .btn, .form__append > .btn, .form__text {
+    background-clip: padding-box;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-group > .form-control:not(:first-child), .input-group > .custom-select:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group > .form-control, .input-group > .form-control-plaintext, .input-group > .custom-select, .input-group > .custom-file {
+    position: relative;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.fa, .fas {
+    font-weight: 900;
+}
+
+.custom-control {
+    position: relative;
+    display: block;
+    min-height: 1.7rem;
+    padding-left: 1.5rem;
+}
+
+.custom-control-label {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+}
+
+.custom-control-label::after {
+    position: absolute;
+    top: 0.35rem;
+    left: -1.5rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    background: no-repeat 50% / 50% 50%;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0.25rem;
+}
+
+.custom-control-label::before, .custom-file-label, .custom-select {
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.custom-control-label::before {
+    position: absolute;
+    top: 0.35rem;
+    left: -1.5rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    content: "";
+    background-color: #fff;
+    border: #e3e6f0 solid 1px;
+}
+
+.custom-control-input {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 1rem;
+    height: 1.35rem;
+    opacity: 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
 }

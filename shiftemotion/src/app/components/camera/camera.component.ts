@@ -13,13 +13,13 @@ export class CameraComponent implements OnInit {
   constraints = {
     video: {
         facingMode: "environment",
-        width: { ideal: 1280 },
-        height: { ideal: 720 }
+        width: { ideal: 720 },
+        height: { ideal: 480 }
     }
   };
 
-videoWidth = 1280;
-videoHeight = 720;
+videoWidth = 720;
+videoHeight = 480;
 localstream;
 
 showcamera:boolean;

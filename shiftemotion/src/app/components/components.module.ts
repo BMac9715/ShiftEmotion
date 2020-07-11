@@ -5,6 +5,7 @@ import { SidebarDashBoardComponent } from './sidebar-dash-board/sidebar-dash-boa
 import { FooterDashboardComponent } from './footer-dashboard/footer-dashboard.component';
 import { RouterModule } from '@angular/router';
 import { FlexModule } from '@angular/flex-layout';
+import { SignupDoneComponent } from './signup-done/signup-done.component';
 
 
 
@@ -12,7 +13,8 @@ import { FlexModule } from '@angular/flex-layout';
   declarations: [
     TopbarDashBoardComponent,
     SidebarDashBoardComponent,
-    FooterDashboardComponent
+    FooterDashboardComponent,
+    SignupDoneComponent
   ],
   imports: [
     CommonModule,
