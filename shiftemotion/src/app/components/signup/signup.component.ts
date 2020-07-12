@@ -50,10 +50,7 @@ export class SignupComponent implements OnInit {
       this.error = "Los campos requeridos no pueden ser vacios.";
     }
     else{  
-      if(this.password === this.confirmPassword){       
-        
-        console.log(this.birth);
-        
+      if(this.password === this.confirmPassword){               
         this.api.userRegister(this.name, this.lastname, this.email, this.password, this.gender.toString(), this.birth)
         .subscribe(
           res => {

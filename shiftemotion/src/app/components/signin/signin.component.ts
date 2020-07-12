@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { first, timeout } from 'rxjs/operators';
-import { Constants } from 'src/app/shared/constants/constants';
 import { Router } from '@angular/router';
 
 @Component({
@@ -36,7 +34,6 @@ export class SigninComponent implements OnInit {
             console.log(res);
 
             if(res.result){
-              localStorage.setItem("email", this.email);
               localStorage.setItem("jwt", res.JWT);
               this.router.navigate(['inicio']); 
             }

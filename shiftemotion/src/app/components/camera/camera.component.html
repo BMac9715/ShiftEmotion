@@ -7,7 +7,7 @@
         <div class="card mx-auto mt-4 card-width-cust">
             <div class="card-body c-center">
                 <!-- Display images -->
-                <canvas [hidden]="showcamera" #canvas class="wh-100"></canvas>
+                <canvas [hidden]="showcamera" #canvas  id="idCanvas" class="wh-100"></canvas>
                 
                 <!-- Video webcam container -->
                 <video [hidden]="!showcamera" #video class="wh-100" autoplay></video> 

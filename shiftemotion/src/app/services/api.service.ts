@@ -8,10 +8,6 @@ import * as aws4 from "ngx-aws4";
 
 const API: string = 'https://6ee7dz1b3a.execute-api.us-east-1.amazonaws.com'
 const KEY: string = '123456$#@$^@1ERF';
-const httpHeadersAPI = new HttpHeaders({
-  'Content-Type': 'application/json',
-  'Accept': '*/*'
-});
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +30,7 @@ export class ApiService {
 
     var passEncr = this.EncrDecr.set({KEY}, password);
     
-    var body = { email: email, password: password};
+    var body = { email: email, password: passEncr};
 
     return this.http.post<any>(`${API}/beta/Login`, body);
   }
@@ -43,8 +39,6 @@ export class ApiService {
     password:string, gender:string,  birthdate: Date): Observable<any>{
     
     var passEncr = this.EncrDecr.set({KEY}, password);
-
-    console.log(gender);
 
     var body = {
                 name: name, 
@@ -58,10 +52,32 @@ export class ApiService {
     return this.http.post<any>(`${API}/beta/Register`, body);
   }
 
-  
+  userAuthSpotify(userid:string, code:string): Observable<any> {
+
+    var body = {
+      userId: Number.parseInt(userid),
+      code: code
+    };
+
+    return this.http.post<any>(`${API}/beta/SpotifyAuth_TopTracks`, body);
+  }
+
+  detectEmotion(user, image, token): Observable<any>{
+
+    var header = { 'Authorization': token };
+
+    var body = {
+      userId: user,
+      image: image.toString()
+    }
+
+    console.log(token);
+    console.log(user);
+    console.log(image);
 
 
+    return this.http.post<any>(`${API}/beta/DetectEmotion`, body, {'headers': header });
 
-
+  }
 
 }
