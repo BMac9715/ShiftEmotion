@@ -9,28 +9,27 @@ import { DefaultModule } from './layout/default/default.module';
 // import {CryptoJS} from 'crypto-js'
 import { SidebarDashBoardComponent } from './components/sidebar-dash-board/sidebar-dash-board.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './components/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
 import { SigninComponent } from './components/signin/signin.component';
-import { CameraComponent } from './components/camera/camera.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { FormsModule } from '@angular/forms';
+import { EncrDecrService } from '../app/services/encr-decr.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    RegistrationComponent,
-    SigninComponent,
-    CameraComponent
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
     DefaultModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [], 
+  providers: [EncrDecrService], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

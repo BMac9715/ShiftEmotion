@@ -1,4 +1,5 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild, asNativeElements } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-camera',
@@ -13,25 +14,26 @@ export class CameraComponent implements OnInit {
   constraints = {
     video: {
         facingMode: "environment",
-        width: { ideal: 1280 },
-        height: { ideal: 720 }
+        width: { ideal: 720 },
+        height: { ideal: 480 }
     }
   };
 
-videoWidth = 1280;
-videoHeight = 720;
+videoWidth = 720;
+videoHeight = 480;
 localstream;
 
 showcamera:boolean;
 defaultImage:boolean;
 isStop:boolean;
+isCamera:boolean;
 takePhoto:boolean;
 disablePhoto:boolean;
 
 uploadImage = new Image();
 url;
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2, private api:ApiService) { }
 
   ngOnInit() {
     this.showcamera = false;
@@ -39,6 +41,7 @@ url;
     this.isStop = true;
     this.takePhoto = true;
     this.disablePhoto = false;
+    this.isCamera = false;
     this.defaultCanvas();   
   }
 
@@ -112,6 +115,7 @@ url;
     this.turnOffCamera();
 
     this.showcamera = false;
+    this.isCamera = true;
   }
   
   turnOffCamera(){
@@ -143,17 +147,41 @@ url;
       };
   
       reader.readAsDataURL(event.target.files[0]);   
+      this.isCamera = false;
     }
   }
 
   getRecommendation(){
+
+    var imgBase64;
+
     if(this.defaultImage){
       console.log("No has cargado una fotografia, para acceder al sistema de recomendación debes cargar una fotografía.");
       alert("No usar Imagen Default :c")
     }
     else{
-      //Aqui ya se carga la imagen y se ejecuta la lambda Dx
-      alert("Utilizar la Lambda AWS");
+      //Cargar Imagen de Canvas
+      var canvasImg = document.getElementById("idCanvas") as HTMLCanvasElement;
+      var imgData = canvasImg.toDataURL("image/png");
+      imgBase64 = imgData.replace(/^data:image\/(png|jpg);base64,/, "");
+      
+      var userid = localStorage.getItem("UID");
+      var token = localStorage.getItem("jwt");
+
+      this.api.detectEmotion(userid, imgBase64, token)
+      .subscribe(
+        res => {
+          if(res.statusCode === "200"){
+            console.log(res.message.descripcion);
+          }else{
+            console.log("Sucedio un error durante la ejecución");
+          }
+        },
+        err => {
+          alert("Ha sucedido un error." + err.message)
+        }
+      )
+
     }
   }
 
