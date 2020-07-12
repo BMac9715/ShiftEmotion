@@ -15,13 +15,8 @@ import { ApiService } from './services/api.service';
 export class AppComponent {
   title = 'shiftemotion';
   
-  constructor(private servicio: ApiService){
-    servicio.ObtenerPrueba().subscribe((res) =>{
-      console.log(res)
-    },err =>{
-      console.log(err)
-    });
-
+  constructor(){
+    
   }
 
 }

@@ -14,6 +14,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { SigninComponent } from './components/signin/signin.component';
 import { CameraComponent } from './components/camera/camera.component';
 import { ReportComponent } from './components/report/report.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { ReportComponent } from './components/report/report.component';
     LayoutModule,
     DefaultModule,
     HttpClientModule
+
   ],
   providers: [], 
   bootstrap: [AppComponent]

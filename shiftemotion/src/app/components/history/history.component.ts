@@ -19,19 +19,6 @@ export class HistoryComponent implements OnInit {
     "Artista",
     "Fecha de busqueda",
     "Link"
-    
-  ]
-
-  testsongs = [
-    {
-    "tipo_emocion": "8",
-    "descripcion": "HAPPY",
-    "nivel_confianza": "99.4202",
-    "nombre_cancion": "Ay Corazu00f3n",
-    "artista": "Cali Y El Dandee",
-    "link": "spotify:track:3DN6Gss0WIEMXc1AvnrAA5",
-    "fecha_transaccion": "2020-07-04 20:06:36"
-    }
   ]
 
   goTrack(urlSpotify: string){
@@ -43,17 +30,13 @@ export class HistoryComponent implements OnInit {
   constructor(private servicio: ApiService){
     servicio.getHistory('7').subscribe((res:History) =>{
       console.log(res)
-        // for(let key in res)
-        //   this.songsHistory.push(res[key])
         this.songsHistory=res.history;
       console.log("HISTORIAL CANCIONES")  
       console.log(this.songsHistory)
 
-
     },err =>{
       console.log(err)
     });
-
 
   }
 

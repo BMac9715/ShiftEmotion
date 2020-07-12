@@ -6,6 +6,7 @@ import { FooterDashboardComponent } from './footer-dashboard/footer-dashboard.co
 import { RouterModule } from '@angular/router';
 import { FlexModule } from '@angular/flex-layout';
 import { ReportComponent } from './report/report.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -19,7 +20,8 @@ import { ReportComponent } from './report/report.component';
   imports: [
     CommonModule,
     RouterModule,
-    FlexModule
+    FlexModule,
+    ChartsModule
   ],
   exports: [
     TopbarDashBoardComponent,
