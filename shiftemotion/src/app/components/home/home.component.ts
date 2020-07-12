@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  display:boolean;
+
+  constructor() { 
+    this.display = false;
+  }
 
   ngOnInit(): void {
+    
+  }
+
+  onActivate(){
+    this.display = true;
+  }
+
+  onDeactivate(){
+    this.display = false;
   }
 
 }

@@ -6,28 +6,46 @@ import {HistoryComponent} from "./components/history/history.component";
 import { DefaultComponent } from './layout/default/default.component';
 import { SidebarDashBoardComponent } from './components/sidebar-dash-board/sidebar-dash-board.component';
 import { SigninComponent } from './components/signin/signin.component';
-import { CameraComponent } from './components/camera/camera.component';
 import { ReportComponent } from './components/report/report.component';
+import { CameraComponent } from './components/camera/camera.component';;
+import { SignupComponent } from './components/signup/signup.component';
+import { SignupDoneComponent } from './components/signup-done/signup-done.component';
+
 
 const routes: Routes = [
   //{path:'', pathMatch:'full', redirectTo:'home'},
   //{path:'', pathMatch:'full', redirectTo:'dashboard'},
   {path:'',
+    component: HomeComponent,
+    children:[{
+      path: 'signin',
+      component:SigninComponent
+    },
+    {
+      path: 'signup',
+      component:SignupComponent
+    },
+    {
+      path: 'signupdone',
+      component:SignupDoneComponent
+    }  
+  ]
+  },
+  
+  {path:'inicio',
     component: DefaultComponent,
     children: [{
       path: 'history',
       component: HistoryComponent
     },{
       path: 'dashboard',
-      component:DashboardComponent}
+      component:DashboardComponent
+    }
     ,{
       path: 'report',
-      component:ReportComponent}
-  ]},
-  // {path: 'dashboard', component:DashboardComponent},
-  {path: 'home', component:HomeComponent},
-  {path: 'signin', component:SigninComponent},
-  {path: 'camera', component:CameraComponent}
+      component:ReportComponent
+    }
+  ]}
 ];
 
 @NgModule({

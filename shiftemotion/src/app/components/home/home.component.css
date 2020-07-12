@@ -1,7 +1,6 @@
-@media (min-width: 992px) {
-    .height-85vh--lg {
-        height: 83.5vh;
-    }
+
+.height-85vh--lg {
+    height: 85vh;
 }
 
 .bg-image-home{

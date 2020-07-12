@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { FlexModule } from '@angular/flex-layout';
 import { ReportComponent } from './report/report.component';
 import { ChartsModule } from 'ng2-charts';
+import { SignupDoneComponent } from './signup-done/signup-done.component';
+
 
 
 
@@ -15,7 +17,8 @@ import { ChartsModule } from 'ng2-charts';
     TopbarDashBoardComponent,
     SidebarDashBoardComponent,
     FooterDashboardComponent,
-    ReportComponent
+    ReportComponent,
+    SignupDoneComponent
   ],
   imports: [
     CommonModule,

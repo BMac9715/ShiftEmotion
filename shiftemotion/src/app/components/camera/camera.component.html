@@ -1,14 +1,13 @@
 <div class="background-camera">
     <div class="container">
-        <div class="mt-4 mb-4 c-center">
-            <h3>Sistema de Recomendación Musical</h3>
-            <span>Para inicar tomate una foto o cargala desde tu ordenador.</span>
+        <div class="pt-4 mb-2 c-center">
+            <span class="font-weight-light text-dark" style="font-size: large;">Para iniciar tomate una foto o cargala desde tu ordenador.</span>
         </div>
 
-        <div class="vid card mx-auto mt-4">
-            <div class="card-body">
+        <div class="card mx-auto mt-4 card-width-cust">
+            <div class="card-body c-center">
                 <!-- Display images -->
-                <canvas [hidden]="showcamera" #canvas class="wh-100"></canvas>
+                <canvas [hidden]="showcamera" #canvas  id="idCanvas" class="wh-100"></canvas>
                 
                 <!-- Video webcam container -->
                 <video [hidden]="!showcamera" #video class="wh-100" autoplay></video> 
