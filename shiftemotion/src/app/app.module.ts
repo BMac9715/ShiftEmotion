@@ -5,14 +5,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LayoutModule } from './layout/layout.module';
 import { DefaultModule } from './layout/default/default.module';
-// import { aws4 }from 'aws4';
-// import {CryptoJS} from 'crypto-js'
 import { SidebarDashBoardComponent } from './components/sidebar-dash-board/sidebar-dash-board.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SigninComponent } from './components/signin/signin.component';
+import { ReportComponent } from './components/report/report.component';
+import { ChartsModule } from 'ng2-charts';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { EncrDecrService } from '../app/services/encr-decr.service';
+
 
 @NgModule({
   declarations: [

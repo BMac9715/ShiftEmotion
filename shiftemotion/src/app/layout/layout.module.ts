@@ -9,6 +9,8 @@ import { DefaultModule } from './default/default.module';
 
 
 
+
+
 @NgModule({
   declarations: [NavbarComponent, FooterComponent],
   exports: [NavbarComponent, FooterComponent], 
