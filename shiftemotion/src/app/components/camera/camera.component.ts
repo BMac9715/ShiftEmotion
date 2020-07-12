@@ -171,16 +171,16 @@ url;
       this.api.detectEmotion(userid, imgBase64, token)
       .subscribe(
         res => {
-          if(res.statusCode === "200"){
-            console.log(res.message.descripcion);
+          if(res.result){
+            console.log(res);
           }else{
-            console.log("Sucedio un error durante la ejecución");
+            console.log(res.message);
           }
         },
         err => {
           alert("Ha sucedido un error." + err.message)
         }
-      )
+      );
 
     }
   }
