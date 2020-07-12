@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { History } from './../../model/history';
 import { ApiService } from './../../services/api.service';
+import { ItemHistory } from 'src/app/model/item-history';
 
 @Component({
   selector: 'app-history',
@@ -8,6 +9,7 @@ import { ApiService } from './../../services/api.service';
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
+
 
   titleTables = [
     "Tipo de Emoción",
@@ -36,16 +38,17 @@ export class HistoryComponent implements OnInit {
     console.log("Print Song" + urlSpotify)
   }
 
-  songsHistory: History[] = [];
+  songsHistory:ItemHistory[]
 
   constructor(private servicio: ApiService){
-    servicio.getHistory('7').subscribe((res) =>{
+    servicio.getHistory('7').subscribe((res:History) =>{
       console.log(res)
-        for(let key in res)
-          this.songsHistory.push(res[key])
-        
+        // for(let key in res)
+        //   this.songsHistory.push(res[key])
+        this.songsHistory=res.history;
       console.log("HISTORIAL CANCIONES")  
-      console.log(this.songsHistory);
+      console.log(this.songsHistory)
+
 
     },err =>{
       console.log(err)

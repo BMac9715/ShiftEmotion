@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { CameraComponent } from './components/camera/camera.component';
+import { ReportComponent } from './components/report/report.component';
 
 @NgModule({
   declarations: [

@@ -7,6 +7,7 @@ import { DefaultComponent } from './layout/default/default.component';
 import { SidebarDashBoardComponent } from './components/sidebar-dash-board/sidebar-dash-board.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { CameraComponent } from './components/camera/camera.component';
+import { ReportComponent } from './components/report/report.component';
 
 const routes: Routes = [
   //{path:'', pathMatch:'full', redirectTo:'home'},
@@ -19,6 +20,9 @@ const routes: Routes = [
     },{
       path: 'dashboard',
       component:DashboardComponent}
+    ,{
+      path: 'report',
+      component:ReportComponent}
   ]},
   // {path: 'dashboard', component:DashboardComponent},
   {path: 'home', component:HomeComponent},
