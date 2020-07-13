@@ -8,7 +8,7 @@ import { FlexModule } from '@angular/flex-layout';
 import { ReportComponent } from './report/report.component';
 import { ChartsModule } from 'ng2-charts';
 import { SignupDoneComponent } from './signup-done/signup-done.component';
-import { HistoryComponent } from './history/history.component';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
@@ -21,7 +21,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FooterDashboardComponent,
     ReportComponent,
     SignupDoneComponent,
-    HistoryComponent,
     DashboardComponent
   ],
   imports: [

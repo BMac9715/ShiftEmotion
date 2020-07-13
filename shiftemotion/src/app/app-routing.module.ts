@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import {HistoryComponent} from "./components/history/history.component";
 import { DefaultComponent } from './layout/default/default.component';
 import { SidebarDashBoardComponent } from './components/sidebar-dash-board/sidebar-dash-board.component';
 import { SigninComponent } from './components/signin/signin.component';
@@ -34,10 +33,8 @@ const routes: Routes = [
   
   {path:'inicio',
     component: DefaultComponent,
-    children: [{
-      path: 'history',
-      component: HistoryComponent
-    },{
+    children: [
+    {
       path: 'dashboard',
       component:DashboardComponent
     }
