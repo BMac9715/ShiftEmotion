@@ -27,6 +27,15 @@ export class DashboardComponent implements OnInit {
     this.defSong=song
     this.spotifyUri='https://open.spotify.com/embed/track/'+ this.defSong.link.replace('spotify:track:','')
     console.log(this.spotifyUri)
+
+    var t = JSON.parse(localStorage.getItem("ResponseTime"));
+    
+    if(t != null){
+      var fin = new Date().getTime();
+      var start = t.start;
+      console.log(fin - start);
+    }
+
     return this._domSanitizer.bypassSecurityTrustResourceUrl(this.spotifyUri)
   }
 
@@ -70,12 +79,8 @@ export class DashboardComponent implements OnInit {
     itemH.link = song.link;
     itemH.fecha_transaccion = "";
 
-    console.log(itemH);
-    console.log("si llego");
-
     this.setTrack(itemH);
   }
-
 
   ngOnInit(): void {
   }
