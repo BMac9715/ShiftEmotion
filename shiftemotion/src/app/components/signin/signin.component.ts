@@ -35,6 +35,7 @@ export class SigninComponent implements OnInit {
 
             if(res.result){
               localStorage.setItem("UID", res.userId);
+              localStorage.setItem("UserName", res.name + " " + res.lastName)
               localStorage.setItem("JWT", res.JWT);
               localStorage.setItem("ExpiredDateJWT", res.exp);
 

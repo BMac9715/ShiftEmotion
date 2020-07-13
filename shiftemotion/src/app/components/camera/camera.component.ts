@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -11,6 +11,9 @@ export class CameraComponent implements OnInit {
   @ViewChild('video', { static: true }) videoElement: ElementRef;
   @ViewChild('canvas', { static: true }) canvas: ElementRef;
 
+  @Output()
+  recomendation: EventEmitter<string> = new EventEmitter<string>();
+  
   constraints = {
     video: {
         facingMode: "environment",
@@ -176,6 +179,11 @@ mood:string;
         res => {
           if(res.result){
             console.log(res);
+            var msg = JSON.parse(res.message);
+
+            this.getSongRecommendation(msg.escala, userid, res.resultId, 
+              msg.confidence, msg.description, msg.id, token);
+
           }else{
             console.log(res.message);
           }
@@ -187,6 +195,34 @@ mood:string;
       );
 
     }
+  }
+
+  sendRecommendation(song:string){
+    this.recomendation.emit(song);
+  }
+
+  getSongRecommendation(mood, userId, idResult, confidence, tip_emotion, emotion, jwtToken){
+    console.log(mood);
+    console.log(userId);
+    console.log(idResult);
+    console.log(jwtToken);
+
+    this.api.spotifyRecommendation(mood, userId, idResult, jwtToken)
+    .subscribe(
+      res => {
+        console.log(res);
+        var jSongDetected = {
+          "tip_emocion": tip_emotion,
+          "emocion": emotion,
+          "lvlConf": confidence,
+          "cancion": res.song_name,
+          "artista": res.artist,
+          "link": res.track_uri
+        }
+        
+        this.sendRecommendation(JSON.stringify(jSongDetected));
+      }
+    );
   }
 
 }

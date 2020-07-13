@@ -11,8 +11,6 @@ import { SignupDoneComponent } from './components/signup-done/signup-done.compon
 
 
 const routes: Routes = [
-  //{path:'', pathMatch:'full', redirectTo:'home'},
-  //{path:'', pathMatch:'full', redirectTo:'dashboard'},
   {path:'',
     component: HomeComponent,
     children:[{
@@ -29,7 +27,6 @@ const routes: Routes = [
     }  
   ]
   },
-  
   {path:'inicio',
     component: DefaultComponent,
     children: [{
