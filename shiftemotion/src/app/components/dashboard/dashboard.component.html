@@ -10,7 +10,7 @@
           <!-- Content Row -->
           <div class="row">
 
-            <!-- Earnings (Monthly) Card Example -->
+            <!-- Cancion y Artista -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -26,8 +26,8 @@
                 </div>
               </div>
             </div>
-
-            <!-- Earnings (Monthly) Card Example -->
+            
+            <!-- Emocion Detectada -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
@@ -44,7 +44,7 @@
               </div>
             </div>
 
-            <!-- Earnings (Monthly) Card Example -->
+            <!-- Nivel de Confianza -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
@@ -72,15 +72,17 @@
 
             <!-- Spotify Card  -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class=" h-100 py-2">
+              <div class=" h-100 py-2" style="text-align: center;">
                 <iframe [src]="setTrack(defSong)" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
               </div>
             </div>
 
+          </div>  
+
           <!-- Content Row -->
           <div class="row">
             <!-- Detection Emotion -->
-            <div class="col-xl-6 col-lg-6">
+            <div class="col-xl-12 col-lg-12">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -88,64 +90,57 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <app-camera></app-camera>
+                  <app-camera (recomendation)="recommendationDetected($event)"></app-camera>
                 </div>
               </div>
-            </div> 
+            </div>     
           </div>
+          <div class="row">
+            <div class="col-xl-12 col-lg-12">
+              <!-- DataTales Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Historial de Búsqueda</h6>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th *ngFor="let title of titleTables" scope="col">{{title}} </th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th *ngFor="let title of titleTables" scope="col">{{title}} </th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                        <tr *ngFor="let song of songsHistory">
+                          <td>{{song.tipo_emocion}}</td>
+                          <td>{{song.descripcion}}</td>
+                          <td>{{song.nivel_confianza}}</td>
+                          <td>{{song.nombre_cancion}}</td>
+                          <td>{{song.artista}}</td>
+                          <td>{{song.fecha_transaccion}}</td>
+                          <!-- {{song.link}}  -->
+                          <td> 
+                            <div class="my-2"></div>
+                            <a (click)="setTrack(song)" class="btn btn-success btn-icon-split">
+                              <span class="icon text-white-50">
+                                <i class="fas fa-play"></i>
+                              </span>
+                              <span class="text" style="color:#FFFFFF" >Reproducir</span>
+                            </a>
+                            <div class="my-2"></div></td>
+                        </tr>
+                        
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                      <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Historial de Búsqueda</h6>
-                      </div>
-                      <div class="card-body">
-                        <div class="table-responsive">
-                          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                              <tr>
-                                <th *ngFor="let title of titleTables" scope="col">{{title}} </th>
-                              </tr>
-                            </thead>
-                            <tfoot>
-                              <tr>
-                                <th *ngFor="let title of titleTables" scope="col">{{title}} </th>
-                              </tr>
-                            </tfoot>
-                            <tbody>
-                              <tr *ngFor="let song of songsHistory">
-                                <td>{{song.tipo_emocion}}</td>
-                                <td>{{song.descripcion}}</td>
-                                <td>{{song.nivel_confianza}}</td>
-                                <td>{{song.nombre_cancion}}</td>
-                                <td>{{song.artista}}</td>
-                                <td>{{song.fecha_transaccion}}</td>
-                                <!-- {{song.link}}  -->
-                                <td> 
-                                  <div class="my-2"></div>
-                                  <a (click)="setTrack(song)" class="btn btn-success btn-icon-split">
-                                    <span class="icon text-white-50">
-                                      <i class="fas fa-play"></i>
-                                    </span>
-                                    <span class="text" style="color:#FFFFFF" >Reproducir</span>
-                                  </a>
-                                  <div class="my-2"></div></td>
-                              </tr>
-                              
-          
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                     
-          
-
-
-
-        <!-- /.container-fluid -->
-
-      <!-- End of Main Content -->
-
-
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>      
+          </div>
 

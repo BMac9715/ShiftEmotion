@@ -55,6 +55,7 @@ export class SignupComponent implements OnInit {
         .subscribe(
           res => {
             if(res.result){
+              localStorage.setItem("UID", res.UID);
               this.redirect(res.auth_link);            
             }else{
               this.error = "Try Again. " + res.message;
