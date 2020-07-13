@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import {HistoryComponent} from "./components/history/history.component";
 import { DefaultComponent } from './layout/default/default.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { ReportComponent } from './components/report/report.component';
@@ -13,29 +12,26 @@ import { SignupDoneComponent } from './components/signup-done/signup-done.compon
 const routes: Routes = [
   //{path:'', pathMatch:'full', redirectTo:'home'},
   //{path:'', pathMatch:'full', redirectTo:'dashboard'},
-  {path:'',
-    component: HomeComponent,
-    children:[{
-      path: 'signin',
-      component:SigninComponent
-    },
-    {
-      path: 'signup',
-      component:SignupComponent
-    },
-    {
-      path: 'signupdone',
-      component:SignupDoneComponent
-    }  
-  ]
-  },
+  // {path:'',
+  //   component: HomeComponent,
+  //   children:[{
+  //     path: 'signin',
+  //     component:SigninComponent
+  //   },
+  //   {
+  //     path: 'signup',
+  //     component:SignupComponent
+  //   },
+  //   {
+  //     path: 'signupdone',
+  //     component:SignupDoneComponent
+  //   }  
+  // ]
+  // },
   
   {path:'inicio',
     component: DefaultComponent,
-    children: [{
-      path: 'history',
-      component: HistoryComponent
-    },
+    children: [
     {
       path: 'dashboard',
       component:DashboardComponent
