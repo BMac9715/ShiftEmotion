@@ -15,12 +15,11 @@ const KEY: string = '123456$#@$^@1ERF';
 })
 export class ApiService {
 
-  JWT: string
+  JWT:string = localStorage.getItem('JWT');
   
   constructor(private http: HttpClient, private EncrDecr:EncrDecrService) { 
-    this.JWT= localStorage.getItem("JWT");
+    //this.JWT= "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyRW1haWwiOiJzYm9uaWxsYWd0QGdtYWlsLmNvbSIsInNjb3BlcyI6IlJlZ2lzdGVyIFNwb3RpZnlBdXRoX1RvcFRyYWNrcyBMb2dpbiBEZXRlY3RFbW90aW9uIFNwb3RpZnlSZWNvbW1lbmRhdGlvbiBIaXN0b3J5IFJlY29tbWVuZGF0aW9uQnlFbW90aW9uIFJlY29tbWVuZGF0aW9uc0J5R2VuZGVyIFNwb3RpZnlMb2dpbiIsImV4cCI6MTU5NDYxMTkyOH0.BDnlNlpnWhNIJU3oVNo2fxF0LSJDChwrHa37biZHLgs"
   }
-
 
   userLogin(email:string, password:string): Observable<any>{
 

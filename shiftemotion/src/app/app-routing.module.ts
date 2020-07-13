@@ -26,6 +26,7 @@ const routes: Routes = [
     }  
   ]
   },
+
   {path:'inicio',
     component: DefaultComponent,
     children: [
