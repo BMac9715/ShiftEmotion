@@ -159,6 +159,12 @@ mood:string;
 
   getRecommendation(){
 
+    let t = {
+      start: new Date().getTime()
+    }
+
+    localStorage.setItem("ResponseTime", JSON.stringify(t));
+
     var imgBase64;
 
     if(this.defaultImage){
