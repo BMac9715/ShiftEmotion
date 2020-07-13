@@ -6,15 +6,17 @@ import { FooterDashboardComponent } from './footer-dashboard/footer-dashboard.co
 import { RouterModule } from '@angular/router';
 import { FlexModule } from '@angular/flex-layout';
 import { SignupDoneComponent } from './signup-done/signup-done.component';
-
-
+import { CameraComponent } from './camera/camera.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     TopbarDashBoardComponent,
     SidebarDashBoardComponent,
     FooterDashboardComponent,
-    SignupDoneComponent
+    SignupDoneComponent,
+    DashboardComponent,
+    CameraComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { SignupDoneComponent } from './signup-done/signup-done.component';
   exports: [
     TopbarDashBoardComponent,
     SidebarDashBoardComponent,
-    FooterDashboardComponent
+    FooterDashboardComponent,
+    CameraComponent
   ]
 })
 export class ComponentsModule { }

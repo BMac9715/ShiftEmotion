@@ -6,14 +6,11 @@ import { HistoryComponent } from 'src/app/components/history/history.component';
 import { RouterModule } from '@angular/router';
 import { SidebarDashBoardComponent } from 'src/app/components/sidebar-dash-board/sidebar-dash-board.component';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { CameraComponent } from 'src/app/components/camera/camera.component';
-
 
 @NgModule({
   declarations: [
     DefaultComponent,
-    HistoryComponent,
-    CameraComponent
+    HistoryComponent
   ],
   imports: [
     CommonModule,

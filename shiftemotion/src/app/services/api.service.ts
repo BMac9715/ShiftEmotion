@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EncrDecrService } from '../services/encr-decr.service';
-import { map } from 'rxjs/operators';
-import * as aws4 from "ngx-aws4";
+import { ResponseEmpotion } from '../model/response-empotion';
+import { ResponseByGender } from '../model/response-by-gender';
 
-const API: string = 'https://6ee7dz1b3a.execute-api.us-east-1.amazonaws.com'
+
+const API: string = 'https://6ee7dz1b3a.execute-api.us-east-1.amazonaws.com/beta'
 const KEY: string = '123456$#@$^@1ERF';
 
 @Injectable({
@@ -14,8 +15,10 @@ const KEY: string = '123456$#@$^@1ERF';
 })
 export class ApiService {
   
-  constructor(private http: HttpClient, private EncrDecr:EncrDecrService) { 
+  JWT: string
 
+  constructor(private http: HttpClient, private EncrDecr:EncrDecrService) { 
+    this.JWT= "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyRW1haWwiOiJzYm9uaWxsYWd0QGdtYWlsLmNvbSIsInNjb3BlcyI6IlJlZ2lzdGVyIFNwb3RpZnlBdXRoX1RvcFRyYWNrcyBMb2dpbiBEZXRlY3RFbW90aW9uIFNwb3RpZnlSZWNvbW1lbmRhdGlvbiBIaXN0b3J5IFJlY29tbWVuZGF0aW9uQnlFbW90aW9uIFJlY29tbWVuZGF0aW9uc0J5R2VuZGVyIFNwb3RpZnlMb2dpbiIsImV4cCI6MTU5NDYwNDIxNH0.eGVAre1dTn9zeLXxFCAmHsw-LSKFc81DQ3zO1xSbPp0"
   }
 
   //GETS
@@ -32,7 +35,7 @@ export class ApiService {
     
     var body = { email: email, password: passEncr};
 
-    return this.http.post<any>(`${API}/beta/Login`, body);
+    return this.http.post<any>(`${API}/Login`, body);
   }
 
   userRegister(name:string, lastname:string, email:string, 
@@ -49,7 +52,24 @@ export class ApiService {
                 birthDate: birthdate
               };
     
-    return this.http.post<any>(`${API}/beta/Register`, body);
+    return this.http.post<any>(`${API}/Register`, body);
+  }
+  
+  getHistory(idUser: string): Observable<History>{
+    const headers = new HttpHeaders({'Authorization': this.JWT});
+    return this.http.post<History>(`${API}/History`,{userId:idUser},{headers: headers})
+  }
+
+  getRecommendationEmotion(): Observable<ResponseEmpotion>{
+    const headers = new HttpHeaders({'Authorization': this.JWT});
+    console.log(headers);
+    return this.http.get<ResponseEmpotion>(`${API}/RecommendationByEmotion`,{headers: headers})
+  }
+  
+  getRecommendationGender(): Observable<ResponseByGender>{
+    const headers = new HttpHeaders({'Authorization': this.JWT});
+    console.log(headers);
+    return this.http.get<ResponseByGender>(`${API}/RecommendationsByGender`,{headers: headers});
   }
 
   userAuthSpotify(userid:string, code:string): Observable<any> {
@@ -59,7 +79,7 @@ export class ApiService {
       code: code
     };
 
-    return this.http.post<any>(`${API}/beta/SpotifyAuth_TopTracks`, body);
+    return this.http.post<any>(`${API}/SpotifyAuth_TopTracks`, body);
   }
 
   detectEmotion(user, image, token): Observable<any>{
@@ -71,13 +91,7 @@ export class ApiService {
       image: image.toString()
     }
 
-    console.log(token);
-    console.log(user);
-    console.log(image);
-
-
-    return this.http.post<any>(`${API}/beta/DetectEmotion`, body, {'headers': header });
-
+    return this.http.post<any>(`${API}/DetectEmotion`, body, {'headers': header });
   }
 
 }
