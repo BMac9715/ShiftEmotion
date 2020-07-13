@@ -21,15 +21,23 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr *ngFor="let song of testsongs">
+                    <tr *ngFor="let song of songsHistory">
                       <td>{{song.tipo_emocion}}</td>
                       <td>{{song.descripcion}}</td>
                       <td>{{song.nivel_confianza}}</td>
                       <td>{{song.nombre_cancion}}</td>
                       <td>{{song.artista}}</td>
                       <td>{{song.fecha_transaccion}}</td>
-                      <td>{{song.link}}</td>
-                      
+                      <!-- {{song.link}}  -->
+                      <td> 
+                        <div class="my-2"></div>
+                        <a (click)="goTrack(song.link)" class="btn btn-success btn-icon-split">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-play"></i>
+                          </span>
+                          <span class="text" style="color:#FFFFFF" >Reproducir</span>
+                        </a>
+                        <div class="my-2"></div></td>
                     </tr>
                     
 

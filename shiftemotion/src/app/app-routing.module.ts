@@ -9,6 +9,7 @@ import { ReportComponent } from './components/report/report.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SignupDoneComponent } from './components/signup-done/signup-done.component';
 
+
 const routes: Routes = [
   //{path:'', pathMatch:'full', redirectTo:'home'},
   //{path:'', pathMatch:'full', redirectTo:'dashboard'},
@@ -28,6 +29,7 @@ const routes: Routes = [
     }  
   ]
   },
+  
   {path:'inicio',
     component: DefaultComponent,
     children: [{
