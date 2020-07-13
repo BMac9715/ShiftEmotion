@@ -33,6 +33,9 @@ disablePhoto:boolean;
 uploadImage = new Image();
 url;
 
+//Var Response Emotion
+mood:string;
+
   constructor(private renderer: Renderer2, private api:ApiService) { }
 
   ngOnInit() {
@@ -164,9 +167,9 @@ url;
       var canvasImg = document.getElementById("idCanvas") as HTMLCanvasElement;
       var imgData = canvasImg.toDataURL("image/png");
       imgBase64 = imgData.replace(/^data:image\/(png|jpg);base64,/, "");
-      
+
       var userid = localStorage.getItem("UID");
-      var token = localStorage.getItem("jwt");
+      var token = localStorage.getItem("JWT");
 
       this.api.detectEmotion(userid, imgBase64, token)
       .subscribe(
@@ -179,6 +182,7 @@ url;
         },
         err => {
           alert("Ha sucedido un error." + err.message)
+          console.log(err);
         }
       );
 

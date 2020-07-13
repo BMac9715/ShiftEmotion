@@ -8,10 +8,8 @@ import { FlexModule } from '@angular/flex-layout';
 import { ReportComponent } from './report/report.component';
 import { ChartsModule } from 'ng2-charts';
 import { SignupDoneComponent } from './signup-done/signup-done.component';
-
+import { CameraComponent } from './camera/camera.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-
 
 
 @NgModule({
@@ -19,9 +17,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     TopbarDashBoardComponent,
     SidebarDashBoardComponent,
     FooterDashboardComponent,
-    ReportComponent,
     SignupDoneComponent,
-    DashboardComponent
+    DashboardComponent,
+    CameraComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +31,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   exports: [
     TopbarDashBoardComponent,
     SidebarDashBoardComponent,
-    FooterDashboardComponent
+    FooterDashboardComponent,
+    CameraComponent
   ]
 })
 export class ComponentsModule { }
