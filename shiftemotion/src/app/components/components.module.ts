@@ -20,14 +20,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SignupDoneComponent,
     DashboardComponent,
     CameraComponent,
-    ReportComponent,
-
+    ReportComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FlexModule,
-    ChartsModule
+    ChartsModule,
   ],
   exports: [
     TopbarDashBoardComponent,
