@@ -33,7 +33,6 @@ export class SignupDoneComponent implements OnInit {
     this.api.userAuthSpotify(this.userid.toString(), this.code)
     .subscribe(
           res => {
-            localStorage.setItem("AccessKey", res.accessToken);
             console.log("Creation Account Successfully");
           },
           err => {

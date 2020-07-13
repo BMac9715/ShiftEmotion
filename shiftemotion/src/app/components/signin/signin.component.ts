@@ -34,9 +34,10 @@ export class SigninComponent implements OnInit {
             console.log(res);
 
             if(res.result){
-              localStorage.setItem("jwt", res.JWT);
-              localStorage.setItem("jwtExpiredDate", res.exp);
               localStorage.setItem("UID", res.userId);
+              localStorage.setItem("JWT", res.JWT);
+              localStorage.setItem("ExpiredDateJWT", res.exp);
+
               this.router.navigate(['inicio']); 
             }
             else{
