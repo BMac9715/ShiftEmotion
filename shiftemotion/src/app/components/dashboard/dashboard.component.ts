@@ -14,7 +14,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class DashboardComponent implements OnInit {
   // Canción por Default Dua Lipa
   trackUrl='spotify:track:6WrI0LAC5M1Rw2MnX2ZvEg'
-  defSong:ItemHistory
+  defSong:ItemHistory = {
+    tipo_emocion: "8",
+    descripcion: "HAPPY",
+    nivel_confianza: 99.4202,
+    nombre_cancion: "Ay Corazu00f3n",
+    artista: "Cali Y El Dandee",
+    link: "spotify:track:3DN6Gss0WIEMXc1AvnrAA5",
+    fecha_transaccion: "2020-07-04 20:02:37"
+}
   
   //Creación de URI
   public spotifyUri: string;
@@ -47,11 +55,14 @@ export class DashboardComponent implements OnInit {
 
   songsHistory:ItemHistory[]
   idUser:string = localStorage.getItem('UID');
+  
 
   constructor(private _domSanitizer:DomSanitizer, private servicio: ApiService) { 
     servicio.getHistory(this.idUser).subscribe((res:History) =>{
         this.songsHistory=res.history;
-        this.defSong=res.history[0];
+        if (res.history.length>0) {
+          this.defSong=res.history[0];
+        }
     },err =>{
       console.log(err)
     });
