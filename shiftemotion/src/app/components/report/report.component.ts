@@ -32,20 +32,30 @@ export class ReportComponent implements OnInit {
     public pieChartPlugins = [];
 
     totalRecomendaciones =0
-    
+    totalEmociones=0
+    generoMayor:string
+    isAdmin:boolean
  
   constructor(private servicio: ApiService){
 
-
     servicio.getRecommendationEmotion().subscribe((res:ResponseEmpotion) =>{
       console.log(res) 
-        this.emotions=res.results;  
+      this.isAdmin=res.result
+        this.emotions=res.results;
+
+        for (let index = 0; index < this.emotions.length; index++) {
+          this.totalEmociones+=(+this.emotions[index].amount)
+        }
+        
     },err =>{
+      this.isAdmin=false
+
       console.log(err)
     });
 
     servicio.getRecommendationGender().subscribe((res:ResponseByGender) =>{
       console.log(res) 
+       
         this.gender=res.results;  
         for (let index = 0; index < this.gender.length; index++) {
           this.pieChartData.push(this.gender[index].amount)
@@ -53,6 +63,9 @@ export class ReportComponent implements OnInit {
           console.log(this.totalRecomendaciones);
           //this.pieChartLabels.push(this.gender[index].desc) // ** Falta validar que idioma vamos a presentar...
         }
+        if (this.gender[0]>this.gender[1]) {
+          this.generoMayor="Masculino"
+        }else{this.generoMayor="Femenino"}
 
     },err =>{
       console.log(err)

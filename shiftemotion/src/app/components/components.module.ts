@@ -10,6 +10,7 @@ import { ChartsModule } from 'ng2-charts';
 import { SignupDoneComponent } from './signup-done/signup-done.component';
 import { CameraComponent } from './camera/camera.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NoDisponibleComponent } from './no-disponible/no-disponible.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SignupDoneComponent,
     DashboardComponent,
     CameraComponent,
-    ReportComponent
+    ReportComponent,
+    NoDisponibleComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     TopbarDashBoardComponent,
     SidebarDashBoardComponent,
     FooterDashboardComponent,
-    CameraComponent
+    CameraComponent,
+    NoDisponibleComponent
   ]
 })
 export class ComponentsModule { }

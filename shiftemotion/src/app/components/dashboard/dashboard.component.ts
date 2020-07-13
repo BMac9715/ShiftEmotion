@@ -46,10 +46,10 @@ export class DashboardComponent implements OnInit {
   ]
 
   songsHistory:ItemHistory[]
-  //idUser = localStorage.getItem('id');
+  idUser:string = localStorage.getItem('UID');
 
   constructor(private _domSanitizer:DomSanitizer, private servicio: ApiService) { 
-    servicio.getHistory('7').subscribe((res:History) =>{
+    servicio.getHistory(this.idUser).subscribe((res:History) =>{
         this.songsHistory=res.history;
         this.defSong=res.history[0];
     },err =>{

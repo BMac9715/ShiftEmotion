@@ -10,24 +10,24 @@ import { SignupDoneComponent } from './components/signup-done/signup-done.compon
 
 
 const routes: Routes = [
-  //{path:'', pathMatch:'full', redirectTo:'home'},
-  //{path:'', pathMatch:'full', redirectTo:'dashboard'},
-  // {path:'',
-  //   component: HomeComponent,
-  //   children:[{
-  //     path: 'signin',
-  //     component:SigninComponent
-  //   },
-  //   {
-  //     path: 'signup',
-  //     component:SignupComponent
-  //   },
-  //   {
-  //     path: 'signupdone',
-  //     component:SignupDoneComponent
-  //   }  
-  // ]
-  // },
+  // {path:'', pathMatch:'full', redirectTo:'home'},
+  // {path:'', pathMatch:'full', redirectTo:'dashboard'},
+  {path:'',
+    component: HomeComponent,
+    children:[{
+      path: 'signin',
+      component:SigninComponent
+    },
+    {
+      path: 'signup',
+      component:SignupComponent
+    },
+    {
+      path: 'signupdone',
+      component:SignupDoneComponent
+    }  
+  ]
+  },
   
   {path:'inicio',
     component: DefaultComponent,
