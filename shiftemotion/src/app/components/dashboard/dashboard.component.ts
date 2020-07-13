@@ -57,6 +57,26 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  recommendationDetected(event){
+
+    var song = JSON.parse(event);
+
+    var itemH = new ItemHistory();
+    itemH.tipo_emocion = song.tip_emocion;
+    itemH.descripcion = song.emocion;
+    itemH.nivel_confianza = Number.parseInt(song.lvlConf);
+    itemH.nombre_cancion = song.cancion;
+    itemH.artista = song.artista;
+    itemH.link = song.link;
+    itemH.fecha_transaccion = "";
+
+    console.log(itemH);
+    console.log("si llego");
+
+    this.setTrack(itemH);
+  }
+
+
   ngOnInit(): void {
   }
 

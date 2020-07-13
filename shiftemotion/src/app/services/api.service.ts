@@ -16,7 +16,6 @@ const KEY: string = '123456$#@$^@1ERF';
 export class ApiService {
 
   JWT:string = localStorage.getItem('JWT');
-  //JWT: string
   
   constructor(private http: HttpClient, private EncrDecr:EncrDecrService) { 
     //this.JWT= "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyRW1haWwiOiJzYm9uaWxsYWd0QGdtYWlsLmNvbSIsInNjb3BlcyI6IlJlZ2lzdGVyIFNwb3RpZnlBdXRoX1RvcFRyYWNrcyBMb2dpbiBEZXRlY3RFbW90aW9uIFNwb3RpZnlSZWNvbW1lbmRhdGlvbiBIaXN0b3J5IFJlY29tbWVuZGF0aW9uQnlFbW90aW9uIFJlY29tbWVuZGF0aW9uc0J5R2VuZGVyIFNwb3RpZnlMb2dpbiIsImV4cCI6MTU5NDYxMTkyOH0.BDnlNlpnWhNIJU3oVNo2fxF0LSJDChwrHa37biZHLgs"
@@ -53,25 +52,28 @@ export class ApiService {
     return this.http.post<History>(`${API}/History`,{userId:idUser},{headers: headers})
   }
   
-  getRecommendationEmotion(): Observable<ResponseEmpotion>{
-    const headers = new HttpHeaders({'Authorization': this.JWT});
-    console.log(headers);
-    return this.http.get<ResponseEmpotion>(`${API}/RecommendationByEmotion`,{headers: headers})
-  }
-  
   getRecommendationGender(): Observable<ResponseByGender>{
     const headers = new HttpHeaders({'Authorization': this.JWT});
     console.log(headers);
     return this.http.get<ResponseByGender>(`${API}/RecommendationsByGender`,{headers: headers});
   }
 
+  getRecommendationEmotion(): Observable<ResponseEmpotion>{
+    const headers = new HttpHeaders({'Authorization': this.JWT});
+    console.log(headers);
+    return this.http.get<ResponseEmpotion>(`${API}/RecommendationByEmotion`,{headers: headers})
+  }
+
   userAuthSpotify(userid:string, code:string): Observable<any> {
+    
+    var header = { 'Cache-Control': 'no-cache'}
+    
     var body = {
       userId: Number.parseInt(userid),
       code: code
     };
 
-    return this.http.post<any>(`${API}/SpotifyAuth_TopTracks`, body);
+    return this.http.post<any>(`${API}/SpotifyAuth_TopTracks`, body, { headers: header});
   }
 
   detectEmotion(user, image, token): Observable<any>{
@@ -84,4 +86,16 @@ export class ApiService {
 
     return this.http.post<any>(`${API}/DetectEmotion`, body, {'headers': header });
   }
+
+  spotifyRecommendation(mood, userid, idresult, token): Observable<any>{
+    var header = { 'Authorization': token };
+
+    var body = {
+      mood: mood,
+      userId: userid,
+      idResult: idresult
+    }
+    return this.http.post<any>(`${API}/SpotifyRecommendation`, body, {'headers': header });
+  }
+
 }
