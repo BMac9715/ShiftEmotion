@@ -12,7 +12,6 @@ import { CameraComponent } from 'src/app/components/camera/camera.component';
 @NgModule({
   declarations: [
     DefaultComponent,
-    HistoryComponent,
     CameraComponent
   ],
   imports: [

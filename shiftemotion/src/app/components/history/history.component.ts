@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { History } from './../../model/history';
 import { ApiService } from './../../services/api.service';
 import { ItemHistory } from 'src/app/model/item-history';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-history',
@@ -10,6 +12,11 @@ import { ItemHistory } from 'src/app/model/item-history';
 })
 export class HistoryComponent implements OnInit {
 
+
+  goTrack(urlSpotify: string){
+    console.log("Print Song" + urlSpotify)
+    
+  }
 
   titleTables = [
     "Tipo de Emoción",
@@ -20,10 +27,6 @@ export class HistoryComponent implements OnInit {
     "Fecha de busqueda",
     "Link"
   ]
-
-  goTrack(urlSpotify: string){
-    console.log("Print Song" + urlSpotify)
-  }
 
   songsHistory:ItemHistory[]
 
@@ -41,6 +44,7 @@ export class HistoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
 }
