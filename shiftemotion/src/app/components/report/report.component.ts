@@ -22,6 +22,8 @@ export class ReportComponent implements OnInit {
       responsive: true,
     };
 
+    public chartColors: Array<any> = [ 
+      { backgroundColor:["#6FC8CE","#FF7360"] }]; 
 
     public pieChartLabels: Label[] = ['Masculino','Femenino'];
     public pieChartData: SingleDataSet = [];

@@ -160,12 +160,14 @@
                   <div class="chart-pie pt-4 pb-2" >
 
                       <canvas baseChart 
+                        [colors]="chartColors"
                         [data]="pieChartData" 
                         [labels]="pieChartLabels" 
                         [chartType]="pieChartType"
                         [options]="pieChartOptions"
                         [plugins]="pieChartPlugins"
-                        [legend]="pieChartLegend">
+                        [legend]="pieChartLegend"
+                         >
                       </canvas>
                       
                   </div>
