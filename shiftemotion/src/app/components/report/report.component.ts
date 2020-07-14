@@ -49,18 +49,15 @@ export class ReportComponent implements OnInit {
         
     },err =>{
       this.isAdmin=false
-
       console.log(err)
     });
 
     servicio.getRecommendationGender().subscribe((res:ResponseByGender) =>{
-      console.log(res) 
-       
         this.gender=res.results;  
         for (let index = 0; index < this.gender.length; index++) {
           this.pieChartData.push(this.gender[index].amount)
           this.totalRecomendaciones+=(+this.gender[index].amount)
-          console.log(this.totalRecomendaciones);
+          //console.log(this.totalRecomendaciones);
           //this.pieChartLabels.push(this.gender[index].desc) // ** Falta validar que idioma vamos a presentar...
         }
         if (this.gender[0]>this.gender[1]) {
@@ -70,11 +67,7 @@ export class ReportComponent implements OnInit {
     },err =>{
       console.log(err)
     });
-
-
-
-
-
+    
     monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
   }

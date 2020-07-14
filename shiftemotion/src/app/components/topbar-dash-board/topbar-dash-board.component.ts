@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopbarDashBoardComponent implements OnInit {
 
-  constructor() { }
+  name:string = localStorage.getItem('UserName')
+
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }

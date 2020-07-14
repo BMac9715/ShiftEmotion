@@ -34,13 +34,7 @@ export class DashboardComponent implements OnInit {
   setTrack(song: ItemHistory){
     this.defSong=song
     this.spotifyUri='https://open.spotify.com/embed/track/'+ this.defSong.link.replace('spotify:track:','')
-    console.log(this.spotifyUri)
     return this._domSanitizer.bypassSecurityTrustResourceUrl(this.spotifyUri)
-  }
-
-  goTrack(urlSpotify: string){
-    console.log("Print Song" + urlSpotify)
-
   }
 
   titleTables = [
@@ -56,16 +50,22 @@ export class DashboardComponent implements OnInit {
   songsHistory:ItemHistory[]
   idUser:string = localStorage.getItem('UID');
   
+  
+  
+  setHistory(){
+    this.servicio.getHistory(this.idUser).subscribe((res:History) =>{
+      this.songsHistory=res.history;
+      if (res.history.length>0) {
+        this.defSong=res.history[0];
+      }
+    },err =>{
+    console.log(err)
+    });
+
+  }
 
   constructor(private _domSanitizer:DomSanitizer, private servicio: ApiService) { 
-    servicio.getHistory(this.idUser).subscribe((res:History) =>{
-        this.songsHistory=res.history;
-        if (res.history.length>0) {
-          this.defSong=res.history[0];
-        }
-    },err =>{
-      console.log(err)
-    });
+
   }
 
   recommendationDetected(event){
@@ -81,14 +81,13 @@ export class DashboardComponent implements OnInit {
     itemH.link = song.link;
     itemH.fecha_transaccion = "";
 
-    console.log(itemH);
-    console.log("si llego");
-
     this.setTrack(itemH);
+    this.setHistory();
   }
 
 
   ngOnInit(): void {
+    this.setHistory()
   }
 
 }
