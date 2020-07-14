@@ -184,7 +184,6 @@ mood:string;
       .subscribe(
         res => {
           if(res.result){
-            console.log(res);
             var msg = JSON.parse(res.message);
 
             this.getSongRecommendation(msg.escala, userid, res.resultId, 
@@ -209,14 +208,9 @@ mood:string;
 
   getSongRecommendation(mood, userId, idResult, confidence, tip_emotion, emotion, jwtToken){
 
-    console.log(mood);
-    console.log(userId);
-    console.log(idResult);
-
     this.api.spotifyRecommendation(mood, userId, idResult, jwtToken)
     .subscribe(
       res => {
-        console.log(res);
         var jSongDetected = {
           "tip_emocion": tip_emotion,
           "emocion": emotion,

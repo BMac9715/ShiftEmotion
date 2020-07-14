@@ -31,8 +31,6 @@ export class SigninComponent implements OnInit {
         this.api.userLogin(this.email, this.pass)
         .subscribe(
           res => {
-            console.log(res);
-
             if(res.result){
               localStorage.setItem("UID", res.userId);
               localStorage.setItem("Admin", res.isAdmin);
