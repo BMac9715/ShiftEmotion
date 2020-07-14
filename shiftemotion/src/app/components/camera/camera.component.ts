@@ -188,7 +188,7 @@ mood:string;
             var msg = JSON.parse(res.message);
 
             this.getSongRecommendation(msg.escala, userid, res.resultId, 
-              msg.confidence, msg.description, msg.id, token);
+              msg.confidence, msg.id, msg.description,  token);
 
           }else{
             console.log(res.message);
@@ -208,10 +208,6 @@ mood:string;
   }
 
   getSongRecommendation(mood, userId, idResult, confidence, tip_emotion, emotion, jwtToken){
-    console.log(mood);
-    console.log(userId);
-    console.log(idResult);
-    console.log(jwtToken);
 
     this.api.spotifyRecommendation(mood, userId, idResult, jwtToken)
     .subscribe(
@@ -225,7 +221,7 @@ mood:string;
           "artista": res.artist,
           "link": res.track_uri
         }
-        
+        this.defaultCanvas();
         this.sendRecommendation(JSON.stringify(jSongDetected));
       }
     );
