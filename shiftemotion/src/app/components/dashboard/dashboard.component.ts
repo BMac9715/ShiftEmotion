@@ -49,7 +49,6 @@ export class DashboardComponent implements OnInit {
 
   goTrack(urlSpotify: string){
     console.log("Print Song" + urlSpotify)
-
   }
 
   titleTables = [
@@ -63,8 +62,8 @@ export class DashboardComponent implements OnInit {
   ]
 
   songsHistory:ItemHistory[]
+
   idUser:string = localStorage.getItem('UID');
-  
 
   constructor(private _domSanitizer:DomSanitizer, private servicio: ApiService) { 
     servicio.getHistory(this.idUser).subscribe((res:History) =>{
@@ -73,7 +72,7 @@ export class DashboardComponent implements OnInit {
           this.defSong=res.history[0];
         }
     },err =>{
-      console.log(err)
+      console.log(err);
     });
   }
 
