@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DefaultComponent } from './layout/default/default.component';
@@ -7,10 +7,11 @@ import { SigninComponent } from './components/signin/signin.component';
 import { ReportComponent } from './components/report/report.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SignupDoneComponent } from './components/signup-done/signup-done.component';
+import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 
 
 const routes: Routes = [
-  {path:'',
+  { path:'',
     component: HomeComponent,
     children:[{
       path: 'signin',
@@ -26,9 +27,10 @@ const routes: Routes = [
     }  
   ]
   },
-
-  {path:'inicio',
+  { path:'inicio',
     component: DefaultComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
     {
       path: 'dashboard',

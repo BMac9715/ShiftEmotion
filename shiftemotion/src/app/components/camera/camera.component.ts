@@ -209,6 +209,10 @@ mood:string;
 
   getSongRecommendation(mood, userId, idResult, confidence, tip_emotion, emotion, jwtToken){
 
+    console.log(mood);
+    console.log(userId);
+    console.log(idResult);
+
     this.api.spotifyRecommendation(mood, userId, idResult, jwtToken)
     .subscribe(
       res => {
