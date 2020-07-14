@@ -11,6 +11,7 @@ export class TopbarDashBoardComponent implements OnInit {
   name:string = localStorage.getItem('UserName')
 
   constructor(private router: Router) { 
+
   }
 
   ngOnInit(): void {
