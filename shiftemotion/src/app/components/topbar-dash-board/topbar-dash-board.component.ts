@@ -20,7 +20,7 @@ export class TopbarDashBoardComponent implements OnInit {
   LogOut(){
     localStorage.clear();
 
-    this.router.navigate(['../signin']);
+    this.router.navigate(['../']);
   }
 
 }
