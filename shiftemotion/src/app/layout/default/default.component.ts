@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class DefaultComponent implements OnInit {
 
-  constructor(readonly router: Router ) { }
+  constructor(private router: Router ) { 
+
+  }
 
   ngOnInit(): void {  
     this.router.navigate(['inicio/dashboard']); 

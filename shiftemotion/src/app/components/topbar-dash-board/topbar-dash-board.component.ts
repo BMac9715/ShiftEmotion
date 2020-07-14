@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topbar-dash-board',
@@ -9,10 +10,17 @@ export class TopbarDashBoardComponent implements OnInit {
 
   name:string = localStorage.getItem('UserName')
 
-  constructor() { 
+  constructor(private router: Router) { 
+
   }
 
   ngOnInit(): void {
+  }
+
+  LogOut(){
+    localStorage.clear();
+
+    this.router.navigate(['../signin']);
   }
 
 }

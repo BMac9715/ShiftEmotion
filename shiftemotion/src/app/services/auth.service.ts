@@ -12,13 +12,4 @@ export class AuthService {
     // true or false
     return !this.jwtHelper.isTokenExpired(token);
   }
-
-  public logout(){
-    localStorage.removeItem("UID");
-    localStorage.removeItem("UserName");
-    localStorage.removeItem("Admin");
-    localStorage.removeItem("JWT");
-    localStorage.removeItem("ExpiredDateJWT");
-  }
-  
 }
