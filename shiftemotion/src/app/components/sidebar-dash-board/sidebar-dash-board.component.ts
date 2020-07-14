@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarDashBoardComponent implements OnInit {
 
+  showReports:boolean;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.showReports = ! (localStorage.getItem("Admin") === "true");
   }
 
 }

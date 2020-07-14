@@ -34,6 +34,14 @@ export class DashboardComponent implements OnInit {
   setTrack(song: ItemHistory){
     this.defSong=song
     this.spotifyUri='https://open.spotify.com/embed/track/'+ this.defSong.link.replace('spotify:track:','')
+    var t = JSON.parse(localStorage.getItem("ResponseTime"));
+    
+    if(t != null){
+      var fin = new Date().getTime();
+      var start = t.start;
+      console.log(fin - start);
+    }
+
     return this._domSanitizer.bypassSecurityTrustResourceUrl(this.spotifyUri)
   }
 
@@ -48,10 +56,9 @@ export class DashboardComponent implements OnInit {
   ]
 
   songsHistory:ItemHistory[]
+
   idUser:string = localStorage.getItem('UID');
-  
-  
-  
+
   setHistory(){
     this.servicio.getHistory(this.idUser).subscribe((res:History) =>{
       this.songsHistory=res.history;
@@ -61,7 +68,6 @@ export class DashboardComponent implements OnInit {
     },err =>{
     console.log(err)
     });
-
   }
 
   constructor(private _domSanitizer:DomSanitizer, private servicio: ApiService) { 
@@ -84,7 +90,6 @@ export class DashboardComponent implements OnInit {
     this.setTrack(itemH);
     this.setHistory();
   }
-
 
   ngOnInit(): void {
     this.setHistory()

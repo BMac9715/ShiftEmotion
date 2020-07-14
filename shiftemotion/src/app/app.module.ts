@@ -13,6 +13,9 @@ import { ChartsModule } from 'ng2-charts';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { EncrDecrService } from '../app/services/encr-decr.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -30,7 +33,13 @@ import { EncrDecrService } from '../app/services/encr-decr.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [EncrDecrService], 
+  providers: [EncrDecrService, 
+              AuthGuardService, 
+              AuthService, 
+              { provide: JWT_OPTIONS, 
+                useValue: JWT_OPTIONS },
+                JwtHelperService 
+              ], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
