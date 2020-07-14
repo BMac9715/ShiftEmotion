@@ -54,6 +54,7 @@ export class ReportComponent implements OnInit {
 
     servicio.getRecommendationGender().subscribe((res:ResponseByGender) =>{
         this.gender=res.results;  
+        console.log(this.gender[0].amount+this.gender[1].amount)
         for (let index = 0; index < this.gender.length; index++) {
           this.pieChartData.push(this.gender[index].amount)
           this.totalRecomendaciones+=(+this.gender[index].amount)

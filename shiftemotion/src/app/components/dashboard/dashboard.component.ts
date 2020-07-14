@@ -61,9 +61,9 @@ export class DashboardComponent implements OnInit {
 
   setHistory(){
     this.servicio.getHistory(this.idUser).subscribe((res:History) =>{
-      this.songsHistory=res.history;
+      this.songsHistory=res.history.slice().reverse();
       if (res.history.length>0) {
-        this.defSong=res.history[0];
+        this.defSong=this.songsHistory[0];
       }
     },err =>{
     console.log(err)
@@ -87,8 +87,8 @@ export class DashboardComponent implements OnInit {
     itemH.link = song.link;
     itemH.fecha_transaccion = "";
 
-    this.setTrack(itemH);
     this.setHistory();
+    //this.setTrack(itemH);
   }
 
   ngOnInit(): void {
