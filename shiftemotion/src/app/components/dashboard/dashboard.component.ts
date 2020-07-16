@@ -64,6 +64,7 @@ export class DashboardComponent implements OnInit {
       this.songsHistory=res.history.slice().reverse();
       if (res.history.length>0) {
         this.defSong=this.songsHistory[0];
+        //this.setTrack(this.defSong);
       }
     },err =>{
     console.log(err)
@@ -88,7 +89,7 @@ export class DashboardComponent implements OnInit {
     itemH.fecha_transaccion = "";
 
     this.setHistory();
-    //this.setTrack(itemH);
+    this.setTrack(itemH);
   }
 
   ngOnInit(): void {
