@@ -14,9 +14,9 @@ export class SignupDoneComponent implements OnInit {
   state:string;
   err:string;
   error:string;
+  enable:boolean = false;
 
   constructor(private api:ApiService, private activatedRoute: ActivatedRoute) {
-
     this.activatedRoute.queryParams.subscribe(
       params => {
         this.code = params['code'];
@@ -32,12 +32,13 @@ export class SignupDoneComponent implements OnInit {
 
     this.api.userAuthSpotify(this.userid.toString(), this.code)
     .subscribe(
-          res => {
-            console.log(res);
+          res => {;
             console.log("Creation Account Successfully");
+            this.enable = true;
           },
           err => {
             console.log(err.message);
+            this.enable = true;
           }
     );
 
