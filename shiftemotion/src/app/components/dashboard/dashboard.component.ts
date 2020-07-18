@@ -34,13 +34,13 @@ export class DashboardComponent implements OnInit {
   setTrack(song: ItemHistory){
     this.defSong=song
     this.spotifyUri='https://open.spotify.com/embed/track/'+ this.defSong.link.replace('spotify:track:','')
-    var t = JSON.parse(localStorage.getItem("ResponseTime"));
+    // var t = JSON.parse(localStorage.getItem("ResponseTime"));
     
-    if(t != null){
-      var fin = new Date().getTime();
-      var start = t.start;
-      console.log(fin - start);
-    }
+    // if(t != null){
+    //   var fin = new Date().getTime();
+    //   var start = t.start;
+    //   console.log(fin - start);
+    // }
 
     return this._domSanitizer.bypassSecurityTrustResourceUrl(this.spotifyUri)
   }
