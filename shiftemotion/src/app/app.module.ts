@@ -16,8 +16,6 @@ import { EncrDecrService } from '../app/services/encr-decr.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
- 
 
 @NgModule({
   declarations: [
@@ -42,11 +40,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
                 provide: JWT_OPTIONS, 
                 useValue: JWT_OPTIONS 
               },
-              JwtHelperService,
-              {
-                provide: LocationStrategy,
-                useClass: HashLocationStrategy
-              } 
+              JwtHelperService
               ], 
   bootstrap: [AppComponent]
 })
