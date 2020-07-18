@@ -57,14 +57,14 @@ export class ApiService {
     this.JWT= localStorage.getItem('JWT');
     const headers = new HttpHeaders({'Authorization': this.JWT});
     console.log(headers);
-    return this.http.get<ResponseByGender>(`${API}/RecommendationsByGender`,{headers: headers});
+    return this.http.post<ResponseByGender>(`${API}/RecommendationsByGender`,{headers: headers});
   }
 
   getRecommendationEmotion(): Observable<ResponseEmpotion>{
     this.JWT= localStorage.getItem('JWT');
     const headers = new HttpHeaders({'Authorization': this.JWT});
     console.log(headers);
-    return this.http.get<ResponseEmpotion>(`${API}/RecommendationByEmotion`,{headers: headers})
+    return this.http.post<ResponseEmpotion>(`${API}/RecommendationByEmotion`,{headers: headers})
   }
 
   userAuthSpotify(userid:string, code:string): Observable<any> {
